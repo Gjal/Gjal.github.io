@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-07T06:34:49.579Z</updated>
+  <updated>2019-11-11T13:39:11.925Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="http://yoursite.com/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/"/>
     <id>http://yoursite.com/2019/11/07/markdown-语法/</id>
     <published>2019-11-07T05:11:31.000Z</published>
-    <updated>2019-11-07T06:34:49.579Z</updated>
+    <updated>2019-11-11T13:39:11.925Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;#1-标题&quot;&gt;1.标题&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2-锚点&quot;&gt;2.锚点&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3-字体&quot;&gt;3.字体&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#4-分割线&quot;&gt;4.分割线&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#5-图片&quot;&gt;5.图片&lt;/a
+        &lt;h1 id=&quot;%E6%A0%87%E9%A2%98&quot;&gt;标题&lt;/h1&gt;
+&lt;p&gt;Markdown共支持六级标题&lt;/p&gt;
+&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class
       
     
     </summary>
@@ -47,7 +49,11 @@
     
       
       
-        &lt;p&gt;中文乱码？&lt;br&gt;用记事本编辑会乱码&lt;br&gt;用VScode 编辑就没有乱码(Atom、Sublime Text也可以)&lt;br&gt;themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。&lt;br&gt;只是编辑器的问题。&lt;br&gt;记事本保存编码格式为“UT
+        &lt;p&gt;中文乱码？&lt;br /&gt;
+用记事本编辑会乱码&lt;br /&gt;
+用VScode 编辑就没有乱码(Atom、Sublime Text也可以)&lt;br /&gt;
+themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。&lt;br /&gt;
+只是编辑器的问题。&lt;br /
       
     
     </summary>
@@ -67,7 +73,8 @@
     
       
       
-        &lt;h2 id=&quot;Comments-Test&quot;&gt;&lt;a href=&quot;#Comments-Test&quot; class=&quot;headerlink&quot; title=&quot;Comments Test&quot;&gt;&lt;/a&gt;Comments Test&lt;/h2&gt;
+        &lt;h2 id=&quot;comments-test&quot; id=&quot;comments-test&quot;&gt;Comments Test&lt;/h2&gt;
+
       
     
     </summary>
@@ -87,7 +94,8 @@
     
       
       
-        &lt;h3 id=&quot;does-it-have-comments&quot;&gt;&lt;a href=&quot;#does-it-have-comments&quot; class=&quot;headerlink&quot; title=&quot;does it have comments&quot;&gt;&lt;/a&gt;does it have comments&lt;/
+        &lt;h3 id=&quot;does-it-have-comments&quot; id=&quot;does-it-have-comments&quot;&gt;does it have comments&lt;/h3&gt;
+
       
     
     </summary>

@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f0ff4d;
+  background: #ac0896;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2666,4 +2666,27 @@ embed {
   padding: 25px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+table {
+  width: 100%;
+/*�������*/
+  max-width: 65em;
+/*���������ȣ�����������*/
+  border: 1px solid #dedede;
+/*������߿�����*/
+  margin: 15px auto;
+/*��߾�*/
+  border-collapse: collapse;
+/*ʹ�õ�һ�����ı߿�*/
+  empty-cells: show;
+/*��Ԫ�����������ɻ��Ʊ߿�*/
+}
+table th,
+table td {
+  height: 35px;
+/*ͳһÿһ�е�Ĭ�ϸ߶�*/
+  border: 1px solid #dedede;
+/*�ڲ��߿���ʽ*/
+  padding: 0 10px;
+/*�ڱ߾�*/
 }
