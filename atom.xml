@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog</title>
+  <title>Keep Learning</title>
   <icon>https://www.gravatar.com/avatar/f6f96006135b95fbaf7f10442aba58b2</icon>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-11T13:39:11.925Z</updated>
+  <updated>2019-11-13T02:58:18.344Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/"/>
     <id>http://yoursite.com/2019/11/07/markdown-语法/</id>
     <published>2019-11-07T05:11:31.000Z</published>
-    <updated>2019-11-11T13:39:11.925Z</updated>
+    <updated>2019-11-13T02:58:18.344Z</updated>
     
     <summary type="html">
     
@@ -54,48 +54,6 @@
 用VScode 编辑就没有乱码(Atom、Sublime Text也可以)&lt;br /&gt;
 themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。&lt;br /&gt;
 只是编辑器的问题。&lt;br /
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2019/10/22/test/"/>
-    <id>http://yoursite.com/2019/10/22/test/</id>
-    <published>2019-10-22T13:50:03.000Z</published>
-    <updated>2019-10-27T03:55:54.743Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;comments-test&quot; id=&quot;comments-test&quot;&gt;Comments Test&lt;/h2&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/10/22/Hello-World/"/>
-    <id>http://yoursite.com/2019/10/22/Hello-World/</id>
-    <published>2019-10-22T13:47:18.000Z</published>
-    <updated>2019-10-22T13:48:15.430Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;does-it-have-comments&quot; id=&quot;does-it-have-comments&quot;&gt;does it have comments&lt;/h3&gt;
-
       
     
     </summary>

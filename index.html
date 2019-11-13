@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Keep Learning" type="application/atom+xml" />
 
 
 
@@ -83,9 +83,9 @@
 
 <meta name="description" content="Blog">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
+<meta property="og:title" content="Keep Learning">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
-<meta property="og:site_name" content="Blog">
+<meta property="og:site_name" content="Keep Learning">
 <meta property="og:description" content="Blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -124,7 +124,7 @@
 
 
 
-  <title>Blog</title>
+  <title>Keep Learning</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Blog</span>
+        <span class="site-title">Keep Learning</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -190,42 +190,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -271,7 +241,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="Keep Learning">
     </span>
 
     
@@ -309,8 +279,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-11T21:39:11+08:00">
-                2019-11-11
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-13T10:58:18+08:00">
+                2019-11-13
               </time>
             
           </span>
@@ -458,6 +428,105 @@ title为当鼠标移到图片上方时，显示的文字，title可加可不加<
 </li>
 <li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> Sleep</label></li>
 </ul>
+<h1 id="%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">遇到的问题</h1>
+<p><strong>表格不能居中显示</strong><br />
+Hexo 默认其官方插件 hexo-renderer-marked 使用 marked 来渲染 Markdown。这个插件有很多特殊 Markdown 语法不支持。Hexo 官方还有另一个使用 markdown-it 做渲染器的插件 hexo-renderer-markdown-it。</p>
+<ul>
+<li>安装<br />
+首先需要先删除默认的 hexo-renderer-marked 插件<br />
+<code>npm uninstall hexo-renderer-marked</code><br />
+再安装 hexo-renderer-markdown-it 插件</li>
+</ul>
+<pre><code class="language-bash"># npm install --save hexo-renderer-markdown-it
+# 直接从 GitHub 上安装，支持配置插件
+npm install --save git+https://github.com/hexojs/hexo-renderer-markdown-it.git
+</code></pre>
+<ul>
+<li>配置<br />
+打开_config.yml,添加如下配置信息:</li>
+</ul>
+<pre><code># Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    # Enable HTML tags in source
+    html: true
+
+    # Use '/' to close single tags (&lt;br /&gt;). This is only for full CommonMark compatibility.
+    xhtmlOut: true        
+
+    # Convert '\n' in paragraphs into &lt;br&gt; 
+    breaks: true      
+
+    # CSS language prefix for fenced blocks. Can be useful for external highlighters.
+    langPrefix: 'language-'  
+
+    # Autoconvert URL-like text to links 
+    linkify: true        
+
+    # Enable some language-neutral replacement + quotes beautification
+    typographer: false
+
+    # Double + single quotes replacement pairs, when typographer enabled,
+    # and smartquotes on. Could be either a String or an Array.
+    #
+    # For example, you can use '«»„“' for Russian, '„“‚‘' for German,
+    # and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
+    quotes: '“”‘’'
+
+  # Plugins
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-anchor
+    - markdown-it-deflist
+    - markdown-it-mark
+    - markdown-it-container
+
+    - markdown-it-emoji
+    - markdown-it-attrs
+    - name: markdown-it-task-lists
+      options:
+        enabled: false
+        label: true
+        labelAfter: false
+  
+  # Automatic Headline ID's
+  anchors:
+    # Minimum level for ID creation. (Ex. h2 to h6)
+    level: 2
+
+    # A suffix that is prepended to the number given if the ID is repeated.
+    collisionSuffix: 'v'           
+
+    # If `true`, creates an anchor tag with a permalink besides the heading.
+    permalink: false              
+
+    # Class used for the permalink anchor tag.
+    permalinkClass: header-anchor 
+
+    # The symbol used to make the permalink
+    permalinkSymbol: ¶
+</code></pre>
+<ul>
+<li>安装插件</li>
+</ul>
+<pre><code class="language-bash">npm install --save markdown-it-abbr          #缩写
+npm install --save markdown-it-footnote      #脚注
+npm install --save markdown-it-ins           #&lt;ins&gt;
+npm install --save markdown-it-sub           #下标
+npm install --save markdown-it-sup           #上标
+npm install --save markdown-it-anchor        #锚点
+npm install --save markdown-it-deflist       #定义列表
+npm install --save markdown-it-mark          #&lt;mark&gt;
+npm install --save markdown-it-container     #自定义容器
+npm install --save markdown-it-emoji         #表情
+npm install --save markdown-it-attrs         #HTML属性
+npm install --save markdown-it-task-lists    #task list
+</code></pre>
 
           
         
@@ -515,7 +584,7 @@ title为当鼠标移到图片上方时，显示的文字，title可加可不加<
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="Keep Learning">
     </span>
 
     
@@ -641,292 +710,6 @@ themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。<br 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lee">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/22/test/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-22T21:50:03+08:00">
-                2019-10-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-10-27T11:55:54+08:00">
-                2019-10-27
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/22/test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/22/test/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="comments-test" id="comments-test">Comments Test</h2>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/Hello-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lee">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/22/Hello-World/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-22T21:47:18+08:00">
-                2019-10-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-10-22T21:48:15+08:00">
-                2019-10-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/22/Hello-World/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/22/Hello-World/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="does-it-have-comments" id="does-it-have-comments">does it have comments</h3>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -973,7 +756,7 @@ themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。<br 
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1023,7 +806,7 @@ themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。<br 
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Lee</span>
 
