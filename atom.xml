@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-13T02:58:18.344Z</updated>
+  <updated>2019-11-14T00:59:30.523Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建博客</title>
+    <link href="http://yoursite.com/2019/11/14/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2019/11/14/搭建博客/</id>
+    <published>2019-11-14T00:48:28.000Z</published>
+    <updated>2019-11-14T00:59:30.523Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;博客搭建基于 GitHub + Hexo.&lt;/p&gt;
+&lt;h1 id=&quot;%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83&quot;&gt;准备环境&lt;/h1&gt;
+&lt;p&gt;在安装Hexo之前需要先安装下列应用程序：&lt;br /&gt;
+&lt;a href=&quot;https://nodejs.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>markdown 语法</title>
