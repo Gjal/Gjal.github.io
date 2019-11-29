@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Keep Learning">
 <meta property="og:description" content="博客搭建基于 GitHub + Hexo. 准备环境 在安装Hexo之前需要先安装下列应用程序： Node.js Git GitHub创建个人仓库 如果没有github账号，在GitHub完成注册。 接着创建Repository: 登录GitHub，点击有右上角的 + ,选择New repository, Repository name的固定格式为：username.github.iouserna">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-14T00:59:30.523Z">
+<meta property="og:updated_time" content="2019-11-29T02:55:10.070Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -277,8 +277,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-14T08:59:30+08:00">
-                2019-11-14
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-29T10:55:10+08:00">
+                2019-11-29
               </time>
             
           </span>
@@ -308,7 +308,20 @@
           
             <div class="post-wordcount">
               
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.6k
+                </span>
+              
 
+              
+                <span class="post-meta-divider">|</span>
               
 
               
@@ -319,7 +332,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  
+                  11
                 </span>
               
             </div>
@@ -358,132 +371,52 @@
 如果显示：<code>No such file or directory</code>,则表示这是第一次使用Git。</li>
 <li>生成新的SSH Keys</li>
 </ul>
-<pre><code class="language-bash">$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;           #邮箱地址为注册GitHub的邮箱地址。
-Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;
-</code></pre>
-<p>然后需要输入密码（这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容）。</p>
-<pre><code class="language-bash">Enter passphrase (empty for no passphrase):    #&lt;设置密码&gt;
-Enter same passphrase again:     #&lt;再次输入密码&gt; 
-#输入密码时，没有什么都没有显示，但是是在输入的。
-</code></pre>
-<ul>
-<li>
-<p>添加SSH Keys到GitHub<br />
-在本地文件夹找到id_rsa.pub文件，用记事本打开该文件，全选复制。<br />
-打开<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH Keys</a>设置页面,点击<code>New SSH Keys</code>,填写title，粘贴刚才的内容到Key中。点击<code>Add SSH Key</code>。</p>
-</li>
-<li>
-<p>测试<br />
-在Git Bash中输入：<code>$ ssh -T git@github.com</code>,<br />
-回车，会要求输入密码<code>Enter passphrase for key '/c/Users/Lee/.ssh/id_rsa':</code><br />
-输入密码，回车，看到<code>Hi xxxx! You've successfully authenticated, but GitHub does not provide shell access.</code><br />
-则表示配置成功。</p>
-</li>
-</ul>
-<h1 id="%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">设置用户信息</h1>
-<pre><code class="language-bash">$ git config --global user.name    #注册GitHub的用户名
-$ git config --global user.email   #注册GitHub的邮箱
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"邮箱地址"</span>           <span class="comment">#邮箱地址为注册GitHub的邮箱地址。</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">然后需要输入密码（这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容）。</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):    <span class="comment">#&lt;设置密码&gt;</span></span><br><span class="line">Enter same passphrase again:     <span class="comment">#&lt;再次输入密码&gt;</span></span><br><span class="line"><span class="comment">#输入密码时，没有什么都没有显示，但是是在输入的。</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">* 添加SSH Keys到GitHub</span><br><span class="line">在本地文件夹找到id_rsa.pub文件，用记事本打开该文件，全选复制。</span><br><span class="line">打开[SSH Keys](https://github.com/settings/keys)设置页面,点击`New SSH Keys`,填写title，粘贴刚才的内容到Key中。点击`Add SSH Key`。</span><br><span class="line"></span><br><span class="line">* 测试</span><br><span class="line">在Git Bash中输入：`$ ssh -T git@github.com`,</span><br><span class="line">回车，会要求输入密码`Enter passphrase <span class="keyword">for</span> key <span class="string">'/c/Users/Lee/.ssh/id_rsa'</span>:`</span><br><span class="line">输入密码，回车，看到`Hi xxxx! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.`</span></span><br><span class="line"><span class="string">则表示配置成功。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 设置用户信息</span></span><br><span class="line"><span class="string">``` bash</span></span><br><span class="line"><span class="string">$ git config --global user.name    #注册GitHub的用户名</span></span><br><span class="line"><span class="string">$ git config --global user.email   #注册GitHub的邮箱</span></span><br></pre></td></tr></table></figure>
 <h1 id="%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2">搭建Hexo博客</h1>
 <ul>
 <li>安装Hexo</li>
 </ul>
-<pre><code class="language-bash">$ npm install -g hexo-cli
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在本地创建项目文件夹<br />
 在本地创建一个与GitHub上的Repository同名的文件夹<code>username.github.io</code>。<br />
 文件夹 → 右键 → 选择Git Bash Here(在搭建博客工作时，每次使用命令，都要在username.github.io目录下）。</li>
 </ul>
-<pre><code class="language-bash">$ hexo init #初始化，初始化后会有一个默认的主题：landscape，和一篇自动生成的hello world的文章
-</code></pre>
-<pre><code class="language-bash">$ hexo g/generate  #生成
-</code></pre>
-<pre><code class="language-bash">$ hexo s/server  #启动服务预览
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init <span class="comment">#初始化，初始化后会有一个默认的主题：landscape，和一篇自动生成的hello world的文章</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g/generate  <span class="comment">#生成</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s/server  <span class="comment">#启动服务预览</span></span><br></pre></td></tr></table></figure>
 <p>接着打开浏览器，输入：<code>localhost:4000</code>就可以看到了。</p>
 <h1 id="%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github">将博客部署到GitHub</h1>
 <ul>
 <li>安装相关插件</li>
 </ul>
-<pre><code class="language-bash">$ npm install hexo-deployer-git --save  
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <ul>
 <li>编辑博客配置文件</li>
 </ul>
 <p>本地打开<code>username.github.io/_config.yml</code>,修改配置文件：</p>
-<pre><code class="language-bash">deploy
-  type: git
-  repository: git@github.com:username/username.github.io.git   #username为github用户名
-  branch: master
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:username/username.github.io.git   <span class="comment">#username为github用户名</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <ul>
 <li>部署</li>
 </ul>
-<pre><code class="language-bash">$ hexo g
-$ hexo d/deploy    #部署(如果有设置密码，需要输入密码)
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d/deploy    <span class="comment">#部署(如果有设置密码，需要输入密码)</span></span><br></pre></td></tr></table></figure>
 <p>接着，在浏览器中输入<code>username.github.io</code>，就可以看到自己的博客了。</p>
 <h1 id="%E5%86%99%E5%8D%9A%E5%AE%A2">写博客</h1>
 <ul>
 <li>新建文章</li>
 </ul>
-<pre><code class="language-bash">$ hexo new [layout] &lt;title&gt;    #title中有空格的话用 &quot;&quot; 括起来
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;    <span class="comment">#title中有空格的话用 "" 括起来</span></span><br></pre></td></tr></table></figure>
 <p>例</p>
-<pre><code class="language-bash">$ hexo new &quot;my first blog&quot;
-</code></pre>
-<p>[layout]可以为：</p>
-<table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>功能</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>post</td>
-<td>新建博文</td>
-<td>source/_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>新建页面</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>新建草稿</td>
-<td>source/_drafts</td>
-</tr>
-</tbody>
-</table>
-<p><code>hexo new &lt;title&gt;</code>创建一篇新文章（[layout]默认为post类型），在<code>username.github.io\source\_posts</code>中可以看到新创建的<code>title.md</code>文件。打开就可以对文章进行编辑，markdown语法可参考：<a href="https://gjal.github.io/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/" target="_blank" rel="noopener">markdown语法</a></p>
-<ul>
-<li>新建草稿</li>
-</ul>
-<pre><code class="language-bash">$ hexo new draft &lt;title&gt;
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"my first blog"</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">[layout]可以为：</span><br><span class="line">参数名 |功能|路径</span><br><span class="line">------|-------|----</span><br><span class="line">post  |新建博文|<span class="built_in">source</span>/_posts</span><br><span class="line">page  |新建页面|<span class="built_in">source</span></span><br><span class="line">draft |新建草稿|<span class="built_in">source</span>/_drafts</span><br><span class="line"></span><br><span class="line">`hexo new &lt;title&gt;`创建一篇新文章（[layout]默认为post类型），在`username.github.io\<span class="built_in">source</span>\_posts`中可以看到新创建的`title.md`文件。打开就可以对文章进行编辑，markdown语法可参考：[markdown语法](https://gjal.github.io/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* 新建草稿</span><br><span class="line">``` bash</span><br><span class="line">$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>本机预览草稿</li>
 </ul>
-<pre><code class="language-bash">$ hexo s --draft 
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s --draft</span><br></pre></td></tr></table></figure>
 <p>打开<code>localhost:4000</code> 就可以预览草稿了</p>
 <ul>
 <li>发布草稿</li>
 </ul>
-<pre><code class="language-bash">$ hexo publish/p &lt;title&gt;   
-</code></pre>
-<ul>
-<li>删除文章<br />
-直接在本地删除<code>.md</code>文件</li>
-</ul>
-<pre><code class="language-bash">$ hexo d -g  #更新推送
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish/p &lt;title&gt;   </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">* 删除文章</span><br><span class="line">直接在本地删除`.md`文件</span><br><span class="line">``` bash</span><br><span class="line">$ hexo d -g  <span class="comment">#更新推送</span></span><br></pre></td></tr></table></figure>
 <h1 id="%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D">绑定域名</h1>
 <p>以腾讯云为例。</p>
 <ul>
@@ -500,23 +433,14 @@ $ hexo d/deploy    #部署(如果有设置密码，需要输入密码)
 <li>本地设置<br />
 在<code>username.github.io\node_modules\hexo</code>根目录的source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，如：<a href="http://name.com" target="_blank" rel="noopener">name.com</a>。如果填写的是www.name.com那么只能用www.name.com访问，而如果填写的是 <a href="http://name.com" target="_blank" rel="noopener">name.com</a> ，那么用www.name.com和name.com访问都是可以的。</li>
 </ul>
-<pre><code class="language-bash">$ hexo d -g
-</code></pre>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
 更新后设置就可以用新的域名进行访问了。</li>
 <li>备案。如果服务器是国外的，就不需要备案。像GitHub服务器就不需要备案了。</li>
 </ul>
 <h1 id="%E5%8D%9A%E5%AE%A2%E4%B8%AA%E6%80%A7%E5%8C%96">博客个性化</h1>
 <h2 id="%E6%9B%B4%E6%94%B9%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF" id="更改站点信息">更改站点信息</h2>
 <p>打开<code>username.github.io/_config.yml</code>文件，可修改信息。</p>
-<pre><code># Site
-title:                        #网站标题
-subtitle:                     #网站副标题
-description:                  #网站描述(主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。)
-keywords:                     #网站的关键词。使用半角逗号 , 分隔多个关键词。
-author:                       #用于主题显示文章的作者
-language: zh-CN               #网站使用的语言
-timezone:                     #网站时区。默认使用您电脑的时区。
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title:                        #网站标题</span><br><span class="line">subtitle:                     #网站副标题</span><br><span class="line">description:                  #网站描述(主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。)</span><br><span class="line">keywords:                     #网站的关键词。使用半角逗号 , 分隔多个关键词。</span><br><span class="line">author:                       #用于主题显示文章的作者</span><br><span class="line">language: zh-CN               #网站使用的语言</span><br><span class="line">timezone:                     #网站时区。默认使用您电脑的时区。</span><br></pre></td></tr></table></figure>
 <h2 id="%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98" id="更改主题">更改主题</h2>
 <ul>
 <li>
@@ -533,10 +457,7 @@ timezone:                     #网站时区。默认使用您电脑的时区。
 <p>然后在Git Bash中输入：</p>
 </li>
 </ul>
-<pre><code class="language-bash">$ hexo g
-$ hexo d  #部署到github
-$ hexo s
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d  <span class="comment">#部署到github</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 <ul>
 <li>接着打开浏览器，输入：<code>localhost:4000</code>就可以看到新主题。</li>
 </ul>
@@ -558,135 +479,60 @@ $ hexo s
 打开<code>username.github.io/next/_config.yml</code><br />
 找到<code>Disqus</code>，配置：</li>
 </ul>
-<pre><code># Disqus
-disqus:
-  enable: true
-  shortname:           #输入刚才的 Website Name
-  count: true
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Disqus</span><br><span class="line">disqus:</span><br><span class="line">  enable: true</span><br><span class="line">  shortname:           #输入刚才的 Website Name</span><br><span class="line">  count: true</span><br></pre></td></tr></table></figure>
 <p>完成。</p>
 <h2 id="%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C" id="主页文章添加边框阴影效果">主页文章添加边框阴影效果</h2>
 <p>打开<code>themes/*/source/css/_custom/custom.styl</code>,添加代码：</p>
-<pre><code class="language-css">.post {
-   margin-top: 0px;
-   margin-bottom: 60px;
-   padding: 25px;
-   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-}
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 203, .5);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="%E5%BC%80%E5%90%AFrss%E8%AE%A2%E9%98%85%E6%9C%8D%E5%8A%A1" id="开启rss订阅服务">开启RSS订阅服务</h2>
 <ul>
 <li>安装RSS插件</li>
 </ul>
-<pre><code class="language-bash">$ npm install hexo-generator-feed --save
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
 <ul>
 <li>修改 hexo <a href="http://xn--username-8t1mq77p9s5ct22b.github.io/_config.yml:" target="_blank" rel="noopener">配置文件username.github.io/_config.yml:</a></li>
 </ul>
-<pre><code class="language-bash">#RSS 订阅
-feed: 
-    type: atom                 #RSS的类型(atom/rss2)
-    path: atom.xml             #文件路径,默认是atom.xml/rss2.xml
-    limit: 20                  #展示文章的数量,使用0或则false代表展示全部
-    hub:
-    content:                   #在RSS文件中是否包含内容 ,有3个值 true/false默认不填为false
-    content_limit:             #指定内容的长度作为摘要,仅仅在上面content设置为false和没有自定义的描述出现
-    content_limit_delim: ' '   #上面截取描述的分隔符,截取内容是以指定的这个分隔符作为截取结束的标志.在达到规定的内容长度之前最后出现的这个分隔符之前的内容,，防止从中间截断
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#RSS 订阅</span></span><br><span class="line">feed:</span><br><span class="line">    <span class="built_in">type</span>: atom                 <span class="comment">#RSS的类型(atom/rss2)</span></span><br><span class="line">    path: atom.xml             <span class="comment">#文件路径,默认是atom.xml/rss2.xml</span></span><br><span class="line">    <span class="built_in">limit</span>: 20                  <span class="comment">#展示文章的数量,使用0或则false代表展示全部</span></span><br><span class="line">    hub:</span><br><span class="line">    content:                   <span class="comment">#在RSS文件中是否包含内容 ,有3个值 true/false默认不填为false</span></span><br><span class="line">    content_limit:             <span class="comment">#指定内容的长度作为摘要,仅仅在上面content设置为false和没有自定义的描述出现</span></span><br><span class="line">    content_limit_delim: <span class="string">' '</span>   <span class="comment">#上面截取描述的分隔符,截取内容是以指定的这个分隔符作为截取结束的标志.在达到规定的内容长度之前最后出现的这个分隔符之前的内容,，防止从中间截断</span></span><br></pre></td></tr></table></figure>
 <h2 id="%E8%AE%BE%E5%AE%9A%E8%8F%9C%E5%8D%95%E9%A1%B9%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%92%8C%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87" id="设定菜单项的文件目录和对应图标">设定菜单项的文件目录和对应图标</h2>
 <h3 id="%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87" id="修改对应图标">修改对应图标</h3>
 <p>打开 themes/*/_config.yml 文件，搜索 menu_icons 关键字，修改对应图标名称或者新增对应 menu 的图标。</p>
-<pre><code class="language-bash">menu:
-  home: /||home
-  about: /about/ ||user
-  tags: /tags/ || tags 
-  #categories: /categories/ || th
-  archives: /archives/|| archive
-  #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
-  commonweal: /404/ || heartbeat
-
-# Enable/Disable menu icons.
-menu_icons:
-  enable: true
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /||home</span><br><span class="line">  about: /about/ ||user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  <span class="comment">#categories: /categories/ || th</span></span><br><span class="line">  archives: /archives/|| archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  commonweal: /404/ || heartbeat</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable/Disable menu icons.</span></span><br><span class="line">menu_icons:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>除了 home， archives , /后面都需要手动创建这个页面</p>
 <h3 id="%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" id="创建菜单项对应文件目录">创建菜单项对应文件目录</h3>
 <ul>
 <li><strong>创建404页面</strong></li>
 </ul>
-<pre><code class="language-bash">$ hexo new page 404
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page 404</span><br></pre></td></tr></table></figure>
 <p>在<code>username.github.io\source\404</code>中可以看到新创建的<code>index.md</code>文件。<br />
 打开文件，在顶部插入<code>permalink: /404</code>，指定该页固定链接为 <a href="https://home/404.html" target="_blank" rel="noopener">https://home/404.html</a></p>
-<pre><code class="language-bash">---
-title: 404
-date: 2019-10-22 10:25:56
-comments: false
-permalink: /404
----
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 2019-10-22 10:25:56</span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>页面内容可以自定义，也可以设置成腾讯公益404界面：</p>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;
-  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
-  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;
-  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;
-  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;
-          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;
-          homePageName=&quot;回到我的主页&quot;&gt;
-  &lt;/script&gt;
-  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=utf-8;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index,follow"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"https://qzone.qq.com/gy/404/style/404style.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/plain"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">homePageUrl</span>=<span class="string">"/"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">homePageName</span>=<span class="string">"回到我的主页"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://qzone.qq.com/gy/404/data.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://qzone.qq.com/gy/404/page.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>创建分类页面</strong></li>
 </ul>
-<pre><code class="language-bash">$ hexo new page categories
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
 <p>打开刚新建的页面,修改Front-matter：</p>
-<pre><code class="language-markdown">---
-title: 分类
-date: 2014-12-22 12:39:04
-categories: name #分类名
-type: &quot;categories&quot;
----
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">categories: name #分类名</span><br><span class="line">type: "categories"</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p><code>Front-matter 是文件最上方以 --- 分隔的区域，用于指定个别文件的变量</code></p>
 <ul>
 <li><strong>创建标签页面</strong></li>
 </ul>
-<pre><code class="language-bash">$ hexo new page tags
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
 <p>打开刚新建的页面,修改Front-matter：</p>
-<pre><code class="language-markdown">---
-title: 分类
-date: 2014-12-22 12:39:04
-type: &quot;tags&quot;
----
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">type: "tags"</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <h2 id="%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87(favicon)" id="设置网站图标-favicon">设置网站图标(favicon)</h2>
 <ul>
 <li>打开<a href="https://tool.lu/favicon/" target="_blank" rel="noopener">favicon制作</a>，设置自己的图标</li>
 <li>将图片保存于 <code>Gjal.github.io\themes\next\source\images</code>。</li>
 <li>打开<code>username.github.io/next/_config.yml</code>,修改设置：</li>
 </ul>
-<pre><code>favicon:
-  small: /images/图片名.png        #换成自己的图片名称
-  medium: /images/图片名.png       #换成自己的图片名称
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
-  #android_manifest: /images/manifest.json
-  #ms_browserconfig: /images/browserconfig.xml
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/图片名.png        #换成自己的图片名称</span><br><span class="line">  medium: /images/图片名.png       #换成自己的图片名称</span><br><span class="line">  apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br><span class="line">  #android_manifest: /images/manifest.json</span><br><span class="line">  #ms_browserconfig: /images/browserconfig.xml</span><br></pre></td></tr></table></figure>
+<h2 id="%E6%98%BE%E7%A4%BA%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4" id="显示阅读时间">显示阅读时间</h2>
+<p>安装hexo-wordcount 插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+<p>修改配置文件(主题配置文件)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/willin/hexo-wordcount</span><br><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true       # 单篇 字数统计</span><br><span class="line">  min2read: true        # 单篇 阅读时长</span><br><span class="line">  totalcount: false     # 网站 字数统计</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
 <h1 id="%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">遇到的问题</h1>
 <pre><code class="language-bash">menu:
    home: /||home    # &quot;||home&quot; 前面不能有空格，否则会出现“Cannot GET /%20/”的错误
@@ -854,7 +700,7 @@ type: &quot;tags&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">准备环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">GitHub创建个人仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8github"><span class="nav-number">3.</span> <span class="nav-text">配置和使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh-keys"><span class="nav-number">4.</span> <span class="nav-text">配置SSH Keys</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">6.</span> <span class="nav-text">搭建Hexo博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-number">7.</span> <span class="nav-text">将博客部署到GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">8.</span> <span class="nav-text">写博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">9.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E4%B8%AA%E6%80%A7%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">博客个性化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">10.1.</span> <span class="nav-text">更改站点信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">10.2.</span> <span class="nav-text">更改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97"><span class="nav-number">10.3.</span> <span class="nav-text">添加评论模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">10.4.</span> <span class="nav-text">主页文章添加边框阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFrss%E8%AE%A2%E9%98%85%E6%9C%8D%E5%8A%A1"><span class="nav-number">10.5.</span> <span class="nav-text">开启RSS订阅服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E8%8F%9C%E5%8D%95%E9%A1%B9%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%92%8C%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">10.6.</span> <span class="nav-text">设定菜单项的文件目录和对应图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">10.6.1.</span> <span class="nav-text">修改对应图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">10.6.2.</span> <span class="nav-text">创建菜单项对应文件目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87(favicon)"><span class="nav-number">10.7.</span> <span class="nav-text">设置网站图标(favicon)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">准备环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">GitHub创建个人仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8github"><span class="nav-number">3.</span> <span class="nav-text">配置和使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh-keys"><span class="nav-number">4.</span> <span class="nav-text">配置SSH Keys</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">5.</span> <span class="nav-text">搭建Hexo博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-number">6.</span> <span class="nav-text">将博客部署到GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">7.</span> <span class="nav-text">写博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">8.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E4%B8%AA%E6%80%A7%E5%8C%96"><span class="nav-number">9.</span> <span class="nav-text">博客个性化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">9.1.</span> <span class="nav-text">更改站点信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">9.2.</span> <span class="nav-text">更改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97"><span class="nav-number">9.3.</span> <span class="nav-text">添加评论模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">9.4.</span> <span class="nav-text">主页文章添加边框阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFrss%E8%AE%A2%E9%98%85%E6%9C%8D%E5%8A%A1"><span class="nav-number">9.5.</span> <span class="nav-text">开启RSS订阅服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E8%8F%9C%E5%8D%95%E9%A1%B9%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%92%8C%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">9.6.</span> <span class="nav-text">设定菜单项的文件目录和对应图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">9.6.1.</span> <span class="nav-text">修改对应图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">9.6.2.</span> <span class="nav-text">创建菜单项对应文件目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87(favicon)"><span class="nav-number">9.7.</span> <span class="nav-text">设置网站图标(favicon)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4"><span class="nav-number">9.8.</span> <span class="nav-text">显示阅读时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">10.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
             
 
           </div>
