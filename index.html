@@ -357,247 +357,22 @@
       
         
           
-            <p>博客搭建基于 GitHub + Hexo.</p>
-<h1 id="%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83">准备环境</h1>
-<p>在安装Hexo之前需要先安装下列应用程序：<br />
-<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a><br />
-<a href="https://git-scm.com/download/" target="_blank" rel="noopener">Git</a></p>
-<h1 id="github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93">GitHub创建个人仓库</h1>
-<p>如果没有github账号，在<a href="https://github.com/join" target="_blank" rel="noopener">GitHub</a>完成注册。<br />
-<strong>接着创建Repository:</strong> 登录GitHub，点击有右上角的 <code>+</code> ,选择<code>New repository</code>,<br />
-<code>Repository name</code>的固定格式为：<code>username.github.io</code>username就是你的github用户名,其余的可以先不填，点击<code>Create repository</code>。</p>
-<h1 id="%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8github">配置和使用GitHub</h1>
-<p>点击<code>开始</code> →<code> Git</code> → <code>Git Bash</code></p>
-<h1 id="%E9%85%8D%E7%BD%AEssh-keys">配置SSH Keys</h1>
-<p>通过SSH Keys可以与GitHub建立联系，更新博客内容。</p>
-<ul>
-<li>检查本地是否有SSH Keys：<code>$ cd ~/.ssh</code>  (在打开的 Git Bash 中输入)<br />
-如果显示：<code>No such file or directory</code>,则表示这是第一次使用Git。</li>
-<li>生成新的SSH Keys</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"邮箱地址"</span>           <span class="comment">#邮箱地址为注册GitHub的邮箱地址。</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</span><br></pre></td></tr></table></figure>
-<p>然后需要输入密码（这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):    <span class="comment">#&lt;设置密码&gt;</span></span><br><span class="line">Enter same passphrase again:     <span class="comment">#&lt;再次输入密码&gt;</span></span><br><span class="line"><span class="comment">#输入密码时，没有什么都没有显示，但是是在输入的。</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>添加SSH Keys到GitHub<br />
-在本地文件夹找到id_rsa.pub文件，用记事本打开该文件，全选复制。<br />
-打开<a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH Keys</a>设置页面,点击<code>New SSH Keys</code>,填写title，粘贴刚才的内容到Key中。点击<code>Add SSH Key</code>。</p>
-</li>
-<li>
-<p>测试<br />
-在Git Bash中输入：<code>$ ssh -T git@github.com</code>,<br />
-回车，会要求输入密码<code>Enter passphrase for key '/c/Users/Lee/.ssh/id_rsa':</code><br />
-输入密码，回车，看到<code>Hi xxxx! You've successfully authenticated, but GitHub does not provide shell access.</code><br />
-则表示配置成功。</p>
-</li>
-</ul>
-<h1 id="%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">设置用户信息</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name    <span class="comment">#注册GitHub的用户名</span></span><br><span class="line">$ git config --global user.email   <span class="comment">#注册GitHub的邮箱</span></span><br></pre></td></tr></table></figure>
-<h1 id="%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2">搭建Hexo博客</h1>
-<ul>
-<li>安装Hexo</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在本地创建项目文件夹<br />
-在本地创建一个与GitHub上的Repository同名的文件夹<code>username.github.io</code>。<br />
-文件夹 → 右键 → 选择Git Bash Here(在搭建博客工作时，每次使用命令，都要在username.github.io目录下）。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init <span class="comment">#初始化，初始化后会有一个默认的主题：landscape，和一篇自动生成的hello world的文章</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g/generate  <span class="comment">#生成</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s/server  <span class="comment">#启动服务预览</span></span><br></pre></td></tr></table></figure>
-<p>接着打开浏览器，输入：<code>localhost:4000</code>就可以看到了。</p>
-<h1 id="%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github">将博客部署到GitHub</h1>
-<ul>
-<li>安装相关插件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<ul>
-<li>编辑博客配置文件</li>
-</ul>
-<p>本地打开<code>username.github.io/_config.yml</code>,修改配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:username/username.github.io.git   <span class="comment">#username为github用户名</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<ul>
-<li>部署</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d/deploy    <span class="comment">#部署(如果有设置密码，需要输入密码)</span></span><br></pre></td></tr></table></figure>
-<p>接着，在浏览器中输入<code>username.github.io</code>，就可以看到自己的博客了。</p>
-<h1 id="%E5%86%99%E5%8D%9A%E5%AE%A2">写博客</h1>
-<ul>
-<li>新建文章</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;    <span class="comment">#title中有空格的话用 "" 括起来</span></span><br></pre></td></tr></table></figure>
-<p>例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"my first blog"</span></span><br></pre></td></tr></table></figure>
-<p>[layout]可以为：</p>
-<table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>功能</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>post</td>
-<td>新建博文</td>
-<td>source/_posts</td>
-</tr>
-<tr>
-<td>page</td>
-<td>新建页面</td>
-<td>source</td>
-</tr>
-<tr>
-<td>draft</td>
-<td>新建草稿</td>
-<td>source/_drafts</td>
-</tr>
-</tbody>
-</table>
-<p><code>hexo new &lt;title&gt;</code>创建一篇新文章（[layout]默认为post类型），在<code>username.github.io\source\_posts</code>中可以看到新创建的<code>title.md</code>文件。打开就可以对文章进行编辑，markdown语法可参考：<a href="https://gjal.github.io/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/" target="_blank" rel="noopener">markdown语法</a></p>
-<ul>
-<li>新建草稿</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>本机预览草稿</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s --draft</span><br></pre></td></tr></table></figure>
-<p>打开<code>localhost:4000</code> 就可以预览草稿了</p>
-<ul>
-<li>发布草稿</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish/p &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>删除文章<br />
-直接在本地删除<code>.md</code>文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g  <span class="comment">#更新推送</span></span><br></pre></td></tr></table></figure>
-<h1 id="%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D">绑定域名</h1>
-<p>以腾讯云为例。</p>
-<ul>
-<li>购买域名。可以在<a href="https://cloud.tencent.com/act/domainsales?from=domainlist" target="_blank" rel="noopener">腾讯云</a>，<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里云</a>或者<a href="https://sg.godaddy.com/zh/domains/domain-name-search?isc=gofd2001aj" target="_blank" rel="noopener">GoDaddy</a>等网站上购买。</li>
-<li>实名认证。超过有效期（3-5天）没有实名认证，域名会被锁定。</li>
-<li>域名解析。实名认证成功后的域名，才能被解析。<br />
-打开<a href="https://console.cloud.tencent.com/domain/mydomain" target="_blank" rel="noopener">我的域名</a>,点击<code>解析</code> → <code>添加记录</code>。<br />
-解析设置添加两条<code>A</code>记录，一条<code>CNAME</code>记录：
-<ul>
-<li><code>CNAME</code>:主机记录选<code>www</code>,记录类型选<code>CNAME</code>,线路选<code>默认</code>,记录值填Github博客的网址(<a href="http://username.github.io" target="_blank" rel="noopener">username.github.io</a>)。点击<code>保存</code>。</li>
-<li><code>A</code>:主机记录选<code>@</code>,记录类型选<code>A</code>,线路选<code>默认</code>,A记录的就是ip地址，记录值有两个，所以要添加两个<code>@</code>主机记录，记录值分别为：<code>192.30.252.153</code>和<code>192.30.252.154</code>。</li>
-<li>设置自定义域<br />
-登录GitHub，进入<code>username.github.io</code>仓库，点击settings，设置Custom domain，输入域名</li>
-<li>本地设置<br />
-在<code>username.github.io\node_modules\hexo</code>根目录的source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，如：<a href="http://name.com" target="_blank" rel="noopener">name.com</a>。如果填写的是www.name.com那么只能用www.name.com访问，而如果填写的是 <a href="http://name.com" target="_blank" rel="noopener">name.com</a> ，那么用www.name.com和name.com访问都是可以的。</li>
-</ul>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-更新后设置就可以用新的域名进行访问了。</li>
-<li>备案。如果服务器是国外的，就不需要备案。像GitHub服务器就不需要备案了。</li>
-</ul>
-<h1 id="%E5%8D%9A%E5%AE%A2%E4%B8%AA%E6%80%A7%E5%8C%96">博客个性化</h1>
-<h2 id="%E6%9B%B4%E6%94%B9%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF" id="更改站点信息">更改站点信息</h2>
-<p>打开<code>username.github.io/_config.yml</code>文件，可修改信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title:                        #网站标题</span><br><span class="line">subtitle:                     #网站副标题</span><br><span class="line">description:                  #网站描述(主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。)</span><br><span class="line">keywords:                     #网站的关键词。使用半角逗号 , 分隔多个关键词。</span><br><span class="line">author:                       #用于主题显示文章的作者</span><br><span class="line">language: zh-CN               #网站使用的语言</span><br><span class="line">timezone:                     #网站时区。默认使用您电脑的时区。</span><br></pre></td></tr></table></figure>
-<h2 id="%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98" id="更改主题">更改主题</h2>
-<ul>
-<li>
-<p>进入<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网主题</a>，找到喜欢的主题后，进入github页面 →点击<code> Clone or download</code> →复制链接，<br />
-接着复制到本地themes文件下：<br />
-右键<code>username.github.io文件夹</code>→ 选择<code>Git Bash Here</code><br />
-输入<code> git clone 复制的链接 themes/主题名</code></p>
-</li>
-<li>
-<p>本地设置<br />
-打开<code>username.github.io</code>文件夹下的<code>_config.yml</code>文件,找到<code>#Extensions</code>,把默认主题landscape改为新下载的主题名。</p>
-</li>
-<li>
-<p>然后在Git Bash中输入：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d  <span class="comment">#部署到github</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<ul>
-<li>接着打开浏览器，输入：<code>localhost:4000</code>就可以看到新主题。</li>
-</ul>
-<h2 id="%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97" id="添加评论模块">添加评论模块</h2>
-<p><strong>Disqus(需要科学上网)</strong></p>
-<ul>
-<li>注册<a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a></li>
-<li>配置Disqus<br />
-点击<code>Get Start</code> → <code>I want to install Disqus on my site</code></li>
-</ul>
-<p><code>Website Name</code> :自己填写.<br />
-<code>Category</code> 选择种类，可以随便选<br />
-<code>Language</code> 选 Chinese 或者 English<br />
-点击<code> Create Site</code><br />
-<code>Select Plan</code> 选择 <code>Basic</code><br />
-<code>Install Disqus</code> 点击 <code>I don't see my platform listed,install manually with Univeral Code</code> → <code>Configure</code> →填写<code>Website URL</code> → 点击<code>Complete Setup</code></p>
-<ul>
-<li>本地配置<br />
-打开<code>username.github.io/next/_config.yml</code><br />
-找到<code>Disqus</code>，配置：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Disqus</span><br><span class="line">disqus:</span><br><span class="line">  enable: true</span><br><span class="line">  shortname:           #输入刚才的 Website Name</span><br><span class="line">  count: true</span><br></pre></td></tr></table></figure>
-<p>完成。</p>
-<h2 id="%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C" id="主页文章添加边框阴影效果">主页文章添加边框阴影效果</h2>
-<p>打开<code>themes/*/source/css/_custom/custom.styl</code>,添加代码：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 203, .5);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="%E5%BC%80%E5%90%AFrss%E8%AE%A2%E9%98%85%E6%9C%8D%E5%8A%A1" id="开启rss订阅服务">开启RSS订阅服务</h2>
-<ul>
-<li>安装RSS插件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
-<ul>
-<li>修改 hexo <a href="http://xn--username-8t1mq77p9s5ct22b.github.io/_config.yml:" target="_blank" rel="noopener">配置文件username.github.io/_config.yml:</a></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#RSS 订阅</span></span><br><span class="line">feed:</span><br><span class="line">    <span class="built_in">type</span>: atom                 <span class="comment">#RSS的类型(atom/rss2)</span></span><br><span class="line">    path: atom.xml             <span class="comment">#文件路径,默认是atom.xml/rss2.xml</span></span><br><span class="line">    <span class="built_in">limit</span>: 20                  <span class="comment">#展示文章的数量,使用0或则false代表展示全部</span></span><br><span class="line">    hub:</span><br><span class="line">    content:                   <span class="comment">#在RSS文件中是否包含内容 ,有3个值 true/false默认不填为false</span></span><br><span class="line">    content_limit:             <span class="comment">#指定内容的长度作为摘要,仅仅在上面content设置为false和没有自定义的描述出现</span></span><br><span class="line">    content_limit_delim: <span class="string">' '</span>   <span class="comment">#上面截取描述的分隔符,截取内容是以指定的这个分隔符作为截取结束的标志.在达到规定的内容长度之前最后出现的这个分隔符之前的内容,，防止从中间截断</span></span><br></pre></td></tr></table></figure>
-<h2 id="%E8%AE%BE%E5%AE%9A%E8%8F%9C%E5%8D%95%E9%A1%B9%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%92%8C%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87" id="设定菜单项的文件目录和对应图标">设定菜单项的文件目录和对应图标</h2>
-<h3 id="%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87" id="修改对应图标">修改对应图标</h3>
-<p>打开 themes/*/_config.yml 文件，搜索 menu_icons 关键字，修改对应图标名称或者新增对应 menu 的图标。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /||home</span><br><span class="line">  about: /about/ ||user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  <span class="comment">#categories: /categories/ || th</span></span><br><span class="line">  archives: /archives/|| archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  commonweal: /404/ || heartbeat</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable/Disable menu icons.</span></span><br><span class="line">menu_icons:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>除了 home， archives , /后面都需要手动创建这个页面</p>
-<h3 id="%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" id="创建菜单项对应文件目录">创建菜单项对应文件目录</h3>
-<ul>
-<li><strong>创建404页面</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page 404</span><br></pre></td></tr></table></figure>
-<p>在<code>username.github.io\source\404</code>中可以看到新创建的<code>index.md</code>文件。<br />
-打开文件，在顶部插入<code>permalink: /404</code>，指定该页固定链接为 <a href="https://home/404.html" target="_blank" rel="noopener">https://home/404.html</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 2019-10-22 10:25:56</span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>页面内容可以自定义，也可以设置成腾讯公益404界面：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=utf-8;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index,follow"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"https://qzone.qq.com/gy/404/style/404style.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/plain"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">homePageUrl</span>=<span class="string">"/"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">homePageName</span>=<span class="string">"回到我的主页"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://qzone.qq.com/gy/404/data.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://qzone.qq.com/gy/404/page.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>创建分类页面</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
-<p>打开刚新建的页面,修改Front-matter：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">categories: name #分类名</span><br><span class="line">type: "categories"</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p><code>Front-matter 是文件最上方以 --- 分隔的区域，用于指定个别文件的变量</code></p>
-<ul>
-<li><strong>创建标签页面</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
-<p>打开刚新建的页面,修改Front-matter：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">type: "tags"</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87(favicon)" id="设置网站图标-favicon">设置网站图标(favicon)</h2>
-<ul>
-<li>打开<a href="https://tool.lu/favicon/" target="_blank" rel="noopener">favicon制作</a>，设置自己的图标</li>
-<li>将图片保存于 <code>Gjal.github.io\themes\next\source\images</code>。</li>
-<li>打开<code>username.github.io/next/_config.yml</code>,修改设置：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/图片名.png        #换成自己的图片名称</span><br><span class="line">  medium: /images/图片名.png       #换成自己的图片名称</span><br><span class="line">  apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br><span class="line">  #android_manifest: /images/manifest.json</span><br><span class="line">  #ms_browserconfig: /images/browserconfig.xml</span><br></pre></td></tr></table></figure>
-<h2 id="%E6%98%BE%E7%A4%BA%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4" id="显示阅读时间">显示阅读时间</h2>
-<p>安装hexo-wordcount 插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
-<p>修改配置文件(主题配置文件)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/willin/hexo-wordcount</span><br><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true       # 单篇 字数统计</span><br><span class="line">  min2read: true        # 单篇 阅读时长</span><br><span class="line">  totalcount: false     # 网站 字数统计</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
-<h1 id="%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">遇到的问题</h1>
-<pre><code class="language-bash">menu:
-   home: /||home    # &quot;||home&quot; 前面不能有空格，否则会出现“Cannot GET /%20/”的错误
-</code></pre>
-
-          
+          博客搭建基于 GitHub + Hexo.
+准备环境
+在安装Hexo之前需要先安装下列应用程序：
+Node.js
+Git
+GitHub创建个人仓库
+如果没有github账号，在GitHub完成注册。
+接着创建Repository: 登录GitHub，点击有右上角的 + ,选择New reposito
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/14/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -769,219 +544,21 @@
       
         
           
-            <h1 id="%E6%A0%87%E9%A2%98">标题</h1>
-<p>Markdown共支持六级标题</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="%E9%94%9A%E7%82%B9">锚点</h1>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[一级标题]（#一级标题）</span><br><span class="line">[二级标题]（#二级标题）</span><br><span class="line">[三级标题]（#三级标题）</span><br><span class="line"></span><br><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br></pre></td></tr></table></figure>
-<p><strong>多个词中间的空格及标题序号中的&quot;.&quot;用&quot;-&quot;代替</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">标题一</span>](<span class="link">#标-题-一</span>)</span><br><span class="line"></span><br><span class="line"><span class="section">### 标-题-一</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="%E5%AD%97%E4%BD%93">字体</h1>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**加粗**</span></span><br><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="strong">***加粗+斜体**</span>*</span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="%E5%88%86%E5%89%B2%E7%BA%BF">分割线</h1>
-<p><strong>用三个或三个以上的&quot;*&quot;或&quot;-&quot;</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">***</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="%E5%9B%BE%E7%89%87">图片</h1>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片链接 "title"</span>)</span><br></pre></td></tr></table></figure>
-<p>图片描述为图片下方的文字说明<br />
-title为当鼠标移到图片上方时，显示的文字，title可加可不加</p>
-<p><strong>例（本地图片）</strong><br />
-<strong>在本地source(<a href="http://username.github.io" target="_blank" rel="noopener">username.github.io</a>\source)中创建img文件夹</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">易烊千玺</span>]](/img/yyqx.jpg "易烊千玺")</span><br></pre></td></tr></table></figure>
-<p><img src="/img/yyqx.jpg" alt="易烊千玺" title="易烊千玺" /></p>
-<hr />
-<h1 id="%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</h1>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">超链名称</span>](<span class="link">超链地址 "title"</span>)  title可加可不加</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">百度</span>](<span class="link">https://www.baidu.com "百度一下"</span>)</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度一下">百度</a></p>
-<p>使用 &lt;&gt; 包括的 URL 或邮箱地址会被自动转换为超链接：</p>
-<p><a href="http://www.google.com" target="_blank" rel="noopener">http://www.google.com</a><br />
-<a href="mailto:123456@qq.com" target="_blank" rel="noopener">123456@qq.com</a></p>
-<hr />
-<h1 id="%E5%88%97%E8%A1%A8">列表</h1>
-<h2 id="%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8" id="无序列表">无序列表</h2>
-<p><strong>可以用&quot;*&quot;、&quot;+&quot;、&quot;-&quot;(需用空格与后面的内容隔开)</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>无序列表1</span><br><span class="line"><span class="bullet">+ </span>无序列表2</span><br><span class="line"><span class="bullet">- </span>无序列表3</span><br></pre></td></tr></table></figure>
-<ul>
-<li>无序列表1</li>
-</ul>
-<ul>
-<li>无序列表2</li>
-</ul>
-<ul>
-<li>无序列表3</li>
-</ul>
-<h2 id="%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8" id="有序列表">有序列表</h2>
-<p><strong>数字加上&quot;.&quot;</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.有序列表1</span><br><span class="line">2.有序列表2</span><br><span class="line">3.有序列表3</span><br></pre></td></tr></table></figure>
-<p>1.有序列表1<br />
-2.有序列表2<br />
-3.有序列表3</p>
-<hr />
-<h1 id="%E8%A1%A8%E6%A0%BC">表格</h1>
-<p>使用<code> | </code>来分隔不同的单元格，使用<code> - </code>来分隔表头和其他行：</p>
-<pre><code class="language-markdown">表头|表头|表头
------- | :----: | -----:
-内容居左|内容居中|内容居右
-内容    |内容    |内容
-内容    |内容    |内容
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th style="text-align:center">表头</th>
-<th style="text-align:right">表头</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>内容居左</td>
-<td style="text-align:center">内容居中</td>
-<td style="text-align:right">内容居右</td>
-</tr>
-<tr>
-<td>内容</td>
-<td style="text-align:center">内容</td>
-<td style="text-align:right">内容</td>
-</tr>
-<tr>
-<td>内容</td>
-<td style="text-align:center">内容</td>
-<td style="text-align:right">内容</td>
-</tr>
-</tbody>
-</table>
-<h1 id="task-list">Task List</h1>
-<pre><code class="language-markdown">- [ ] Eat
-- [ ] Coding
-  - [x] HTML
-  - [x] CSS
-  - [ ] JavaScript
-- [ ] Sleep
-</code></pre>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> Eat</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> Coding</label>
-<ul class="contains-task-list">
-<li class="task-list-item"><label><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> HTML</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> CSS</label></li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> JavaScript</label></li>
-</ul>
-</li>
-<li class="task-list-item"><label><input class="task-list-item-checkbox" disabled="" type="checkbox"> Sleep</label></li>
-</ul>
-<h1 id="%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">遇到的问题</h1>
-<h2 id="%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81" id="中文乱码">中文乱码</h2>
-<p>用记事本编辑会乱码<br />
-用VScode 编辑就没有乱码(Atom、Sublime Text也可以)<br />
-themes-(next)-languages里面没有的包（zh-CN）也不会出现乱码。<br />
-只是编辑器的问题。<br />
-记事本保存编码格式为“UTF-8&quot; 也可以解决乱码问题，但是需要另存，太麻烦了。</p>
-<h2 id="%E8%A1%A8%E6%A0%BC%E4%B8%8D%E8%83%BD%E5%B1%85%E4%B8%AD%E6%98%BE%E7%A4%BA" id="表格不能居中显示">表格不能居中显示</h2>
-<p>Hexo 默认其官方插件 hexo-renderer-marked 使用 marked 来渲染 Markdown。这个插件有很多特殊 Markdown 语法不支持。Hexo 官方还有另一个使用 markdown-it 做渲染器的插件 hexo-renderer-markdown-it。</p>
-<ul>
-<li>安装<br />
-首先需要先删除默认的 hexo-renderer-marked 插件<br />
-<code>npm uninstall hexo-renderer-marked</code><br />
-再安装 hexo-renderer-markdown-it 插件</li>
-</ul>
-<pre><code class="language-bash"># npm install --save hexo-renderer-markdown-it
-# 直接从 GitHub 上安装，支持配置插件
-npm install --save git+https://github.com/hexojs/hexo-renderer-markdown-it.git
-</code></pre>
-<ul>
-<li>配置<br />
-打开_config.yml,添加如下配置信息:</li>
-</ul>
-<pre><code># Markdown-it config
-## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
-markdown:
-  render:
-    # Enable HTML tags in source
-    html: true
+          标题
+Markdown共支持六级标题
+123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题
 
-    # Use '/' to close single tags (&lt;br /&gt;). This is only for full CommonMark compatibility.
-    xhtmlOut: true        
-
-    # Convert '\n' in paragraphs into &lt;br&gt; 
-    breaks: true      
-
-    # CSS language prefix for fenced blocks. Can be useful for external highlighters.
-    langPrefix: 'language-'  
-
-    # Autoconvert URL-like text to links 
-    linkify: true        
-
-    # Enable some language-neutral replacement + quotes beautification
-    typographer: false
-
-    # Double + single quotes replacement pairs, when typographer enabled,
-    # and smartquotes on. Could be either a String or an Array.
-    #
-    # For example, you can use '«»„“' for Russian, '„“‚‘' for German,
-    # and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
-    quotes: '“”‘’'
-
-  # Plugins
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-    - markdown-it-anchor
-    - markdown-it-deflist
-    - markdown-it-mark
-    - markdown-it-container
-
-    - markdown-it-emoji
-    - markdown-it-attrs
-    - name: markdown-it-task-lists
-      options:
-        enabled: false
-        label: true
-        labelAfter: false
-  
-  # Automatic Headline ID's
-  anchors:
-    # Minimum level for ID creation. (Ex. h2 to h6)
-    level: 2
-
-    # A suffix that is prepended to the number given if the ID is repeated.
-    collisionSuffix: 'v'           
-
-    # If `true`, creates an anchor tag with a permalink besides the heading.
-    permalink: false              
-
-    # Class used for the permalink anchor tag.
-    permalinkClass: header-anchor 
-
-    # The symbol used to make the permalink
-    permalinkSymbol: ¶
-</code></pre>
-<ul>
-<li>安装插件</li>
-</ul>
-<pre><code class="language-bash">npm install --save markdown-it-abbr          #缩写
-npm install --save markdown-it-footnote      #脚注
-npm install --save markdown-it-ins           #&lt;ins&gt;
-npm install --save markdown-it-sub           #下标
-npm install --save markdown-it-sup           #上标
-npm install --save markdown-it-anchor        #锚点
-npm install --save markdown-it-deflist       #定义列表
-npm install --save markdown-it-mark          #&lt;mark&gt;
-npm install --save markdown-it-container     #自定义容器
-npm install --save markdown-it-emoji         #表情
-npm install --save markdown-it-attrs         #HTML属性
-npm install --save markdown-it-task-lists    #task list
-</code></pre>
-
-          
+锚点
+1234567[一级标题]（#一级标题）[二级标题]（#二级标题）[三级标题]（#三级标题）# 一级标题## 二级标题### 三级标题
+多
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1153,9 +730,16 @@ npm install --save markdown-it-task-lists    #task list
       
         
           
-            <p>Hello World</p>
+          Hello World
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/27/Wanna-do-sommething/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1283,7 +867,7 @@ npm install --save markdown-it-task-lists    #task list
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-"></i>
   </span>
