@@ -88,8 +88,10 @@
 <meta property="og:site_name" content="Keep Learning">
 <meta property="og:description" content="博客搭建基于 GitHub + Hexo. 准备环境 在安装Hexo之前需要先安装下列应用程序： Node.js Git GitHub创建个人仓库 如果没有github账号，在GitHub完成注册。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-23T00:37:34.456Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;pagination.png">
+<meta property="og:updated_time" content="2020-10-07T12:23:02.932Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;pagination.png">
 
 
 
@@ -297,12 +299,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-23T08:37:34+08:00">
-                2020-09-23
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-07T20:23:02+08:00">
+                2020-10-07
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -336,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.6k
+                  2.9k
                 </span>
               
 
@@ -352,7 +376,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  11
+                  12
                 </span>
               
             </div>
@@ -609,9 +633,48 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
 <p>修改配置文件(主题配置文件)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/willin/hexo-wordcount</span><br><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true       # 单篇 字数统计</span><br><span class="line">  min2read: true        # 单篇 阅读时长</span><br><span class="line">  totalcount: false     # 网站 字数统计</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
+<h1 id="%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB">添加分类</h1>
+<p>1.<code>hexo new page categories</code> 新建一个页面，并命名为categories。<br />
+成功后会提示：<code>INFO Created: ~/hexo/source/categories/index.md</code><br />
+2.根据上面的路径找到index.md这个文件，<br />
+添加type: &quot;categories&quot;到内容中,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-10-06 22:15:12</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>3.打开需要添加分类的文章，为其添加categories属性.如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 搭建博客</span><br><span class="line">date: 2019-11-14 08:48:28</span><br><span class="line">categories: web</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>注：Hexo中一篇文章只能属于一个分类，<br />
+4.在菜单上添加分类选项<br />
+打开<code>/hexo/themes/next/_config.yml</code>文件，去掉<code>categories</code>前的<code>#</code>号。就可以在菜单上看到分类图标了。</p>
+<h1 id="%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE">添加标签</h1>
+<p>1.<code>hexo new page tags</code>新建一个页面，并命名为tags。<br />
+成功后会提示：<code>INFO Created: ~/hexo/source/tags/index.md</code><br />
+2.根据上面的路径找到index.md这个文件，<br />
+添加<code>type: &quot;tags&quot;</code>到内容中,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-10-06 22:48:30</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>3.打开需要添加标签的文章，给文章添加”tags”属性。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 搭建博客</span><br><span class="line">date: 2019-11-14 08:48:28</span><br><span class="line">categories: web</span><br><span class="line">tags: 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>添加多个标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tags: [tag1,tag2,tag3]</span><br></pre></td></tr></table></figure>
+<p>4.在菜单上添加标签选项<br />
+打开<code>/hexo/themes/next/_config.yml</code>文件，去掉<code>tags</code>前的<code>#</code>号。就可以在菜单上看到标签图标了。</p>
 <h1 id="%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">遇到的问题</h1>
 <pre><code class="language-bash">menu:
    home: /||home    # &quot;||home&quot; 前面不能有空格，否则会出现“Cannot GET /%20/”的错误
+</code></pre>
+<h2 id="%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF" id="分页显示错误">分页显示错误</h2>
+<p><img src="/img/pagination.png" alt="下一页符号显示错误" title="下一页符号显示错误" /><br />
+修改： <code>/Gjal.github.io/themes/next/layout/_partials/pagination.swig</code>:</p>
+<pre><code>{%- if page.prev or page.next %}
+ &lt;nav class=&quot;pagination&quot;&gt;
+   {{
+     paginator({
+       prev_text: '<i class="fa fa-angle-left" aria-label="'+__('accessibility.prev_page')+'"></i>',
+       next_text: '<i class="fa fa-angle-right" aria-label="'+__('accessibility.next_page')+'"></i>',
+       mid_size: 1,
+       escape: false
+     })
+   }} 
+ &lt;/nav&gt;
+{%- endif %}
 </code></pre>
 
       
@@ -739,6 +802,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
             
 
@@ -776,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">准备环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">GitHub创建个人仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8github"><span class="nav-number">3.</span> <span class="nav-text">配置和使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh-keys"><span class="nav-number">4.</span> <span class="nav-text">配置SSH Keys</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">6.</span> <span class="nav-text">搭建Hexo博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-number">7.</span> <span class="nav-text">将博客部署到GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">8.</span> <span class="nav-text">写博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">9.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E4%B8%AA%E6%80%A7%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">博客个性化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">10.1.</span> <span class="nav-text">更改站点信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">10.2.</span> <span class="nav-text">更改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97"><span class="nav-number">10.3.</span> <span class="nav-text">添加评论模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">10.4.</span> <span class="nav-text">主页文章添加边框阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFrss%E8%AE%A2%E9%98%85%E6%9C%8D%E5%8A%A1"><span class="nav-number">10.5.</span> <span class="nav-text">开启RSS订阅服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E8%8F%9C%E5%8D%95%E9%A1%B9%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%92%8C%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">10.6.</span> <span class="nav-text">设定菜单项的文件目录和对应图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">10.6.1.</span> <span class="nav-text">修改对应图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">10.6.2.</span> <span class="nav-text">创建菜单项对应文件目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87(favicon)"><span class="nav-number">10.7.</span> <span class="nav-text">设置网站图标(favicon)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4"><span class="nav-number">10.8.</span> <span class="nav-text">显示阅读时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">准备环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">GitHub创建个人仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8github"><span class="nav-number">3.</span> <span class="nav-text">配置和使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh-keys"><span class="nav-number">4.</span> <span class="nav-text">配置SSH Keys</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">6.</span> <span class="nav-text">搭建Hexo博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-number">7.</span> <span class="nav-text">将博客部署到GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">8.</span> <span class="nav-text">写博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">9.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E4%B8%AA%E6%80%A7%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">博客个性化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">10.1.</span> <span class="nav-text">更改站点信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">10.2.</span> <span class="nav-text">更改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97"><span class="nav-number">10.3.</span> <span class="nav-text">添加评论模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">10.4.</span> <span class="nav-text">主页文章添加边框阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFrss%E8%AE%A2%E9%98%85%E6%9C%8D%E5%8A%A1"><span class="nav-number">10.5.</span> <span class="nav-text">开启RSS订阅服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E8%8F%9C%E5%8D%95%E9%A1%B9%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%92%8C%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">10.6.</span> <span class="nav-text">设定菜单项的文件目录和对应图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E5%9B%BE%E6%A0%87"><span class="nav-number">10.6.1.</span> <span class="nav-text">修改对应图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E9%A1%B9%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">10.6.2.</span> <span class="nav-text">创建菜单项对应文件目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87(favicon)"><span class="nav-number">10.7.</span> <span class="nav-text">设置网站图标(favicon)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4"><span class="nav-number">10.8.</span> <span class="nav-text">显示阅读时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB"><span class="nav-number">11.</span> <span class="nav-text">添加分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE"><span class="nav-number">12.</span> <span class="nav-text">添加标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">13.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF"><span class="nav-number">13.1.</span> <span class="nav-text">分页显示错误</span></a></li></ol></li></ol></div>
             
 
           </div>
