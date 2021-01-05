@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,算法,waitting," />
 
 
 
@@ -81,14 +81,15 @@
 
 
 
-<meta name="description" content="Hello World">
+<meta name="description" content="二叉树 前序遍历 中序遍历 后序遍历 层序遍历 广度优先搜素(BFS)(层序遍历、最短路径) （队列的实现） (waitting LC 设计实现循环队列） 深度优先搜索(DFS) 递归和迭代 递归 汉诺塔问题 斐波那契数列 动态规划？？？">
+<meta name="keywords" content="leetcode,算法,waitting">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;Wanna-do-sommething&#x2F;index.html">
+<meta property="og:title" content="leetcode">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;11&#x2F;13&#x2F;leetcode&#x2F;index.html">
 <meta property="og:site_name" content="Keep Learning">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="二叉树 前序遍历 中序遍历 后序遍历 层序遍历 广度优先搜素(BFS)(层序遍历、最短路径) （队列的实现） (waitting LC 设计实现循环队列） 深度优先搜索(DFS) 递归和迭代 递归 汉诺塔问题 斐波那契数列 动态规划？？？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-18T01:11:04.545Z">
+<meta property="og:updated_time" content="2020-11-29T06:31:22.011Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/27/Wanna-do-sommething/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/11/13/leetcode/"/>
 
 
 
 
 
-  <title>Test | Keep Learning</title>
+  <title>leetcode | Keep Learning</title>
   
 
 
@@ -252,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/Wanna-do-sommething/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/13/leetcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lee">
@@ -269,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Test</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode</h1>
         
 
         <div class="post-meta">
@@ -281,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-27T11:15:57+08:00">
-                2019-10-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-13T22:16:55+08:00">
+                2020-11-13
               </time>
             
 
@@ -297,12 +298,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-18T09:11:04+08:00">
-                2019-11-18
+              <time title="Post modified" itemprop="dateModified" datetime="2020-11-29T14:31:22+08:00">
+                2020-11-29
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -312,9 +335,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/27/Wanna-do-sommething/#comments" itemprop="discussionUrl">
+                <a href="/2020/11/13/leetcode/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/27/Wanna-do-sommething/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2020/11/13/leetcode/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -336,7 +359,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2
+                  78
                 </span>
               
 
@@ -373,7 +396,20 @@
       
 
       
-        <p>Hello World</p>
+        <h1 id="%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</h1>
+<h2 id="%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86" id="前序遍历">前序遍历</h2>
+<h2 id="%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86" id="中序遍历">中序遍历</h2>
+<h2 id="%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86" id="后序遍历">后序遍历</h2>
+<h2 id="%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86" id="层序遍历">层序遍历</h2>
+<h3 id="%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A0(bfs)(%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%E3%80%81%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84)" id="广度优先搜素-bfs-层序遍历-最短路径">广度优先搜素(BFS)(层序遍历、最短路径)</h3>
+<p><strong>（队列的实现）</strong><br />
+(<font color="red" size=5>waitting</font> <a href="https://leetcode-cn.com/leetbook/read/queue-stack/kzlb5/" target="_blank" rel="noopener" title="设计实现循环队列">LC 设计实现循环队列</a>）</p>
+<h3 id="%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2(dfs)" id="深度优先搜索-dfs">深度优先搜索(DFS)</h3>
+<h1 id="%E9%80%92%E5%BD%92%E5%92%8C%E8%BF%AD%E4%BB%A3">递归和迭代</h1>
+<h2 id="%E9%80%92%E5%BD%92" id="递归">递归</h2>
+<h3 id="%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98" id="汉诺塔问题">汉诺塔问题</h3>
+<h3 id="%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97" id="斐波那契数列">斐波那契数列</h3>
+<p>动态规划？？？</p>
 
       
     </div>
@@ -389,6 +425,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+            <a href="/tags/waitting/" rel="tag"># waitting</a>
+          
+        </div>
+      
 
       
       
@@ -398,15 +444,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/11/14/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="搭建博客">
+                <i class="fa fa-chevron-left"></i> 搭建博客
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/07/markdown-%E8%AF%AD%E6%B3%95/" rel="prev" title="markdown 语法">
-                markdown 语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -536,6 +591,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.</span> <span class="nav-text">后序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.4.</span> <span class="nav-text">层序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A0(bfs)(%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%E3%80%81%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84)"><span class="nav-number">1.4.1.</span> <span class="nav-text">广度优先搜素(BFS)(层序遍历、最短路径)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2(dfs)"><span class="nav-number">1.4.2.</span> <span class="nav-text">深度优先搜索(DFS)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%92%8C%E8%BF%AD%E4%BB%A3"><span class="nav-number">2.</span> <span class="nav-text">递归和迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">2.1.</span> <span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.1.</span> <span class="nav-text">汉诺塔问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="nav-number">2.1.2.</span> <span class="nav-text">斐波那契数列</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -695,9 +766,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/10/27/Wanna-do-sommething/';
-          this.page.identifier = '2019/10/27/Wanna-do-sommething/';
-          this.page.title = 'Test';
+          this.page.url = 'http://yoursite.com/2020/11/13/leetcode/';
+          this.page.identifier = '2020/11/13/leetcode/';
+          this.page.title = 'leetcode';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://gjal-blog.disqus.com/embed.js';
